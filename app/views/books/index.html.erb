@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+
+  </thead>
+
+  <tbody>
+
+    <div class="book_post">
+    <% @books.each do |book| %>
+        <small>
+          <h2><%= link_to book.name, book %></h2>
+          <%= link_to 'Редактировать', edit_book_path(book) %>
+          <%= link_to 'Удалить', book, method: :delete, data: { confirm: 'Вы уверенны?' } %>
+        </small>
+        <section class="clearfix">
+        <%= image_tag book.image.url(:thumb), class: 'img-thumbnail thumb' if book.image? %>
+        <%= book.body %>
+        </section>
+    <% end %>
+  </div>
+  
+  </tbody>
+</table>
+
+<br>

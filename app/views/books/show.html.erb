@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <%= @book.name %>
+</h2>
+<%= image_tag @book.image.url(:large), class: 'img-show' if @book.image? %>
+<p>
+  <strong>Описание:</strong>
+  <%= @book.body %>
+</p>
+<%= link_to 'Редактировать', edit_book_path(@book), class: 'btn btn-primary' %>
+<%= link_to 'Назад', books_path, class: 'btn btn-primary' %>

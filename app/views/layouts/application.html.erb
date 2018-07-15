@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TestLibrary</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="">Библиотека</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="<%= books_path %>">Все книги<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Все авторы</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </div>
+    <%= link_to 'Добавить книгу', new_book_path, class: 'btn btn-primary add_somethg' %>
+    <%= link_to 'Добавить категорию', new_book_path, class: 'btn btn-primary add_somethg' %>
+    <%= link_to 'Добавить администратора', new_book_path, class: 'btn btn-primary add_somethg' %>
+  </div>
+</nav>
+</div>
+
+    <div class="container">
+    <%= yield %>
+    </div>
+  </body>
+</html>
