@@ -1,0 +1,8 @@
+<h1>Книги по категории "<%= @category.name %>"</h1>
+<hr>
+
+<% if @category.books.empty? %>
+  <h2>Книги отсутствуют в данной категории</h2>
+<% else %>
+  <%= render @books %>
+<% end %>

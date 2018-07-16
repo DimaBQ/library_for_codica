@@ -1,17 +1,10 @@
-class BooksController < ApplicationController
+class Admin::BooksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:edit, :update, :destroy]
 
   # GET /books
   # GET /books.json
-  def index
-    @books = Book.all
-  end
 
-  # GET /books/1
-  # GET /books/1.json
-  def show
-  end
 
   # GET /books/new
   def new
@@ -29,7 +22,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to  @book, success: 'Книга была добавлена в библиотеку.' }
+        format.html { redirect_to [:admin, @book], success: 'Книга была добавлена в библиотеку.' }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, danger: 'Книга не создана.' }
@@ -43,7 +36,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, success: 'Книга была обновлена.' }
+        format.html { redirect_to [:admin, @book], success: 'Книга была обновлена.' }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, danger: 'Книга не обновлена.' }
@@ -55,9 +48,11 @@ class BooksController < ApplicationController
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
-     @book.destroy
-     redirect_to books_path, success: 'Статья успешно удалена'
- 
+    @book.destroy
+    respond_to do |format|
+      format.html { redirect_to books_url, success: 'Книга была удалена из библиотеки.' }
+      format.json { head :no_content }
+    end
   end
 
   private

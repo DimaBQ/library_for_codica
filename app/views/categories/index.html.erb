@@ -1,0 +1,11 @@
+<h1>Все категории</h1>
+<hr />
+
+<div class="book_post">
+<% @categories.each do |category| %>
+    <small>
+      <h2><%= link_to category.name, category %></h2>
+
+    </small>
+<% end %>
+</div>

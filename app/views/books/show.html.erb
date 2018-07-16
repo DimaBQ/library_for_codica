@@ -1,12 +1,21 @@
-<p id="notice"><%= notice %></p>
+
 
 <h2>
   <%= @book.name %>
 </h2>
+<section class="footer">
+<%= raw @book.authors.map(&:name).map{ |t| link_to t, author_path(t), class: 'tag tag-primary' }.join(' ') %>
+</section>
 <%= image_tag @book.image.url(:large), class: 'img-show' if @book.image? %>
 <p>
   <strong>Описание:</strong>
   <%= @book.body %>
 </p>
+
+<section class="footer">
+<%= raw @book.categories.map(&:name).map{ |t| link_to t, category_path(t), class: 'tag tag-primary' }.join(' ') %>
+</section>
+
+
 <%= link_to 'Редактировать', edit_book_path(@book), class: 'btn btn-primary' %>
-<%= link_to 'Назад', books_path, class: 'btn btn-primary' %>
+<%= link_to 'Удалить', book_path(@book), method: :delete, data: { confirm: 'Вы увереннны?' } , class: 'btn btn-primary' %>

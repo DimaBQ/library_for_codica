@@ -1,0 +1,10 @@
+<h1>Все авторы</h1>
+<hr />
+
+<% @authors.each do |author| %>
+    <small>
+      <h2><%= link_to author.name, author %></h2>
+    </small>
+
+
+<% end %>

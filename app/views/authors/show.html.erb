@@ -1,0 +1,8 @@
+<h1>Весь каталог книг <%= @author.name %></h1>
+<hr />
+
+<% if @author.books.empty? %>
+  <h2>Этот автор пока не имеет книг</h2>
+  <% else %>
+  <%= render @author.books %>
+  <% end %>
