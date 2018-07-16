@@ -22,13 +22,15 @@
       <a class="nav-item nav-link" href="<%= authors_path %>">Все авторы</a>
       <a class="nav-item nav-link" href="<%= categories_path %>" >Все категории</a>
     </div>
-    <%= link_to 'Добавить книгу', new_book_path, class: 'btn btn-primary' %>
+
+    <%= link_to 'Добавить книгу', new_book_path, class: 'btn btn-primary pull-xs-right' %>
     <% if user_signed_in? %>
-    <%= link_to 'Выход', destroy_user_session_path, method: :delete, class: 'btn btn-primary add_somethg' %>
+    <%= link_to 'Выход', destroy_user_session_path, method: :delete, class: 'btn btn-primary add_somethg pull-xs-right' %>
     <% else %>
-    <%= link_to 'Вход', new_user_session_path, class: 'btn btn-primary add_somethg' %>
-    <%= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-primary add_somethg' %>
+    <%= link_to 'Вход', new_user_session_path, class: 'btn btn-primary add_somethg pull-xs-right' %>
+    <%= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-primary add_somethg pull-xs-right' %>
     <% end %>
+
   </div>
 </nav>
 </div>

@@ -5,9 +5,14 @@
     <h2><%= link_to book.name, book_path(book) %></h2>
 
     <%= link_to 'Редактировать', edit_book_path(book) %>
-    <%= link_to 'Удалить', book_path(book), method: :delete, data: { confirm: 'Вы уверенны?' } %>
+    |
+    <%= link_to 'Удалить', book_path(book), method: :delete, data: { confirm: 'Вы уверенны?' } %> <br />
 
   </small>
+
+  автор(ы): <%= raw book.authors.map(&:name).map{ |t| link_to t, author_path(t), class: 'tag tag-primary' }.join(' ') %><br />
+
+  категория: <%= raw book.categories.map(&:name).map{ |t| link_to t, category_path(t), class: 'tag tag-primary' }.join(' ') %>
 
   <section class="clearfix">
 
@@ -17,11 +22,5 @@
 
   </section>
 
-  <section class="footer">
-  <%= raw book.categories.map(&:name).map{ |t| link_to t, category_path(t), class: 'tag tag-primary' }.join(' ') %>
-  </section>
 
-  <section class="footer">
-  <%= raw book.authors.map(&:name).map{ |t| link_to t, author_path(t), class: 'tag tag-primary' }.join(' ') %>
-  </section>
 </article>
