@@ -66,7 +66,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "multi_json"
 
 group :production do
-
+  gem 'pg', '~> 0.18.4'
+  gem 'rails_12factor', '0.0.2'
 end
 
 gem 'bootstrap', '~> 4.1.1'
