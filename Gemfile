@@ -73,7 +73,7 @@ gem 'bootstrap', '~> 4.1.1'
 
 gem 'carrierwave', '~> 1.0'
 
-#gem 'fog'
+gem 'fog-aws'
 
 
 
